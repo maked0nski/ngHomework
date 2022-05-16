@@ -1,0 +1,11 @@
+.user {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.example-card {
+  width: 300px;
+  margin: 10px;
+}

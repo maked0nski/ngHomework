@@ -1,0 +1,10 @@
+h1 {
+  text-align: center;
+}
+
+.user {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
