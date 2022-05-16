@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.active a {
+  color: red;
+}
+.container{
+
+}
+.block{
+  grid-template-columns: repeat(2, 1fr);
+  margin: 30px auto;
+  grid-gap: 10px;
+  display: grid;
+}
