@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.active a {
+  color: red;
+}
+
+app-users, app-posts{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 0;
+  justify-items: center;
+}
+app-user-details, app-post-details{
+  grid-column-start: 2;
+  grid-row-start: 1;
+}
+

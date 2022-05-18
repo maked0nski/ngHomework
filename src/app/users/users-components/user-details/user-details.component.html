@@ -1,0 +1,17 @@
+<div class="details">
+  <h3>User Details Info:</h3>
+  <div *ngIf="userDetails">
+    <div>ID : {{userDetails.id}}</div>
+    <div>First Name : {{userDetails.firstName}}</div>
+    <div>Last Name : {{userDetails.lastName}}</div>
+    <div>Maiden Name : {{userDetails.maidenName}}</div>
+    <div>Age : {{userDetails.age}}</div>
+    <div>Gender : {{userDetails.gender}}</div>
+    <div><a href="mailto:{{userDetails.email}}">Email : {{userDetails.email}}</a></div>
+    <div><a href="tel:{{userDetails.phone}}">Phone : {{userDetails.phone}}</a></div>
+    <div>Username : {{userDetails.username}}</div>
+    <div>Password : {{userDetails.password}}</div>
+    <div>Birth Date : {{userDetails.birthDate}}</div>
+    <div><img alt="{{userDetails.username}}" src="{{userDetails.image}}"></div>
+  </div>
+</div>

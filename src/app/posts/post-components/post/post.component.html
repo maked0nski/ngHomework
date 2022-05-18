@@ -1,0 +1,4 @@
+<div *ngIf="post" [routerLinkActive]="['active']">
+  <div><a [routerLink]="[post.id]" [state]="post">{{post.id}} ). Title: {{post.title}}</a></div>
+</div>
+
