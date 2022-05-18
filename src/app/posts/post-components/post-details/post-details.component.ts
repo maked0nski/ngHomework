@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+
 import {PostDataService} from "../../post-service/post-data.service";
 import {PostInterface} from "../../../interfaces";
 
@@ -10,7 +11,7 @@ import {PostInterface} from "../../../interfaces";
 })
 export class PostDetailsComponent implements OnInit {
 
-  post:PostInterface;
+  post: PostInterface;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -20,12 +21,12 @@ export class PostDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(({id})=>{
+    this.activatedRoute.params.subscribe(({id}) => {
       let state = this.router.getCurrentNavigation()?.extras?.state?.['post'] as PostInterface;
 
-      if (state){
+      if (state) {
         this.post = state;
-      }else {
+      } else {
         this.postDataService.getById(id).subscribe(post => this.post = post);
       }
     })
