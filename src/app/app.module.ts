@@ -2,16 +2,16 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from "./app-routing.module";
-import {AppComponent} from './components/app/app.component';
-import {HomeComponent} from './components/home/home.component';
+import {AppComponent} from './app.component';
 import {HeaderComponent} from './components/header/header.component';
+import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     HeaderComponent,
+    MainLayoutComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,7 +8,7 @@ a {
   color: red;
 }
 
-app-users, app-posts{
+app-users, app-posts, app-products{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
@@ -16,7 +16,7 @@ app-users, app-posts{
   grid-row-gap: 0;
   justify-items: center;
 }
-app-user-details, app-post-details{
+app-user-details, app-post-details, app-product-details{
   grid-column-start: 2;
   grid-row-start: 1;
 }

@@ -1,13 +1,18 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
 
-import {HomeComponent} from "./components/home/home.component";
+import {MainLayoutComponent} from "./layouts/main-layout/main-layout.component";
 
 let routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule)},
-  {path: 'posts', loadChildren: () => import('./posts/posts.module').then(m => m.PostsModule)},
-  {path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)},
+  {
+    path: '', component: MainLayoutComponent, children: [
+      {path: '', redirectTo: 'users', pathMatch: 'full'},
+      {path: 'users', loadChildren: () => import('./modules').then(m => m.UsersModule)},
+      {path: 'posts', loadChildren: () => import('./modules').then(m => m.PostsModule)},
+      {path: 'products', loadChildren: () => import('./modules').then(m => m.ProductsModule)},
+    ]
+  },
+
 ];
 
 @NgModule({
