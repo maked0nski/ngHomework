@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 
-import {UserDataService} from "../../users-services/user-data.service";
 import {IUserDetails} from "../../interface";
 
 @Component({
@@ -15,23 +14,23 @@ export class UserDetailsComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router,
-    private userDataService: UserDataService
+    // private router: Router,
+    // private userDataService: UserDataService
   ) {
   }
 
-  ngOnInit()
-    :
-    void {
-    this.activatedRoute.params.subscribe(({id}) => {
-      let state = this.router.getCurrentNavigation()?.extras.state?.['user'] as IUserDetails;
+  ngOnInit(): void {
+    this.activatedRoute.data.subscribe(({userData}) => this.userDetails= userData);
 
-      if (state) {
-        this.userDetails = state;
-      } else {
-        this.userDataService.getById(id).subscribe(value => this.userDetails = value);
-      }
-    })
+    // this.activatedRoute.params.subscribe(({id}) => {
+    //   let state = this.router.getCurrentNavigation()?.extras.state?.['user'] as IUserDetails;
+    //
+    //   if (state) {
+    //     this.userDetails = state;
+    //   } else {
+    //     this.userDataService.getById(id).subscribe(value => this.userDetails = value);
+    //   }
+    // })
   }
 
 }
