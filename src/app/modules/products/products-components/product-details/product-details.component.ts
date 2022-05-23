@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 
-import {ProductsDataService} from "../../products-services/products-data.service";
 import {ProductInterface} from "../../interface";
 
 @Component({
@@ -11,25 +10,13 @@ import {ProductInterface} from "../../interface";
 })
 export class ProductDetailsComponent implements OnInit {
 
-  product:ProductInterface;
+  product: ProductInterface;
 
-  constructor(
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private productsDataService: ProductsDataService
-  ) {
+  constructor(private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(({id})=>{
-      let state = this.router.getCurrentNavigation()?.extras?.state?.['product'] as ProductInterface;
-
-      if (state){
-        this.product = state;
-      }else {
-        this.productsDataService.getByID(id).subscribe(value => this.product = value);
-      }
-    })
+    this.activatedRoute.data.subscribe(({productData}) => this.product = productData)
   }
 
 }

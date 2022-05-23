@@ -1,0 +1,5 @@
+<div [routerLinkActive]="['active']">
+  {{comment.id}} ). <a [routerLink]="[comment.id]" [state]="comment">
+  Username: {{comment.user.username}}, Comment body: {{comment.body}}
+</a>
+</div>

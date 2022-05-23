@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
-import {ProductsDataService} from "../../products-services/products-data.service";
 import {ProductInterface} from "../../interface";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-products',
@@ -12,11 +12,11 @@ export class ProductsComponent implements OnInit {
 
   products: ProductInterface[];
 
-  constructor(private productsDataService: ProductsDataService) {
+  constructor(private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.productsDataService.getAll().subscribe(({products}) => this.products = products);
+    this.activatedRoute.data.subscribe(({productsData}) => this.products = productsData.products)
   }
 
 }

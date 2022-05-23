@@ -10,6 +10,8 @@ let routes: Routes = [
       {path: 'users', loadChildren: () => import('./modules').then(m => m.UsersModule)},
       {path: 'posts', loadChildren: () => import('./modules').then(m => m.PostsModule)},
       {path: 'products', loadChildren: () => import('./modules').then(m => m.ProductsModule)},
+      {path: 'comments', loadChildren: () => import('./modules').then(m => m.CommentsModule)},
+      {path: 'todos', loadChildren: () => import('./modules').then(m => m.TodosModule)},
     ]
   },
 

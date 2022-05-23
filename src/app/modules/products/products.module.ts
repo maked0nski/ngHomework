@@ -7,6 +7,8 @@ import {ProductsComponent} from './products-components/products/products.compone
 import {ProductComponent} from './products-components/product/product.component';
 import {ProductDetailsComponent} from './products-components/product-details/product-details.component';
 import {ProductsDataService} from "./products-services/products-data.service";
+import {ProductsResolver} from "./products-services/products.resolver";
+import {ProductDetailsResolver} from "./products-services/product-details.resolver";
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import {ProductsDataService} from "./products-services/products-data.service";
     HttpClientModule
   ],
   providers: [
-    ProductsDataService
+    ProductsDataService,
+    ProductsResolver,
+    ProductDetailsResolver
   ]
 })
 export class ProductsModule {

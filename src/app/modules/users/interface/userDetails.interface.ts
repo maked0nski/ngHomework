@@ -10,7 +10,6 @@ export interface IUserDetails extends IUser{
   age: number,
   email: string,
   phone: string,
-  username: string,
   password: string,
   birthDate: string,
   image: string,
