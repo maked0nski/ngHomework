@@ -10,8 +10,10 @@ const routes: Routes = [
     path: "", component: UsersComponent,
     resolve: {usersData: UsersResolver},
     children: [
-      {path: ":id", component: UserDetailsComponent,
-        resolve: {userData: UserDetailsResolver}}
+      {
+        path: ":id", component: UserDetailsComponent,
+        resolve: {userData: UserDetailsResolver}
+      }
     ]
   },
 ];

@@ -1,0 +1,46 @@
+<div class="container py-5 vh-100">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+      <div class="card bg-dark text-white" style="border-radius: 1rem;">
+        <div class="card-body p-5 text-center">
+
+          <div class="mb-md-5 mt-md-4 pb-5">
+
+            <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
+            <p class="text-white-50 mb-5">Please fill in this form to create an account.</p>
+
+            <form [formGroup]="registerForm" (ngSubmit)="submitRegister()">
+              <div class="form-outline form-white mb-4">
+                <input formControlName="username" type="username" id="typeUsernameX"
+                       class="form-control form-control-lg"/>
+                <label class="form-label" for="typeUsernameX">username</label>
+                <p *ngIf="this.registerForm.get('username')?.invalid && this.registerForm.get('username')?.touched">
+                  <small
+                    class="text-danger">username is required</small></p>
+                <p *ngIf="userNameError">
+                  <small
+                    class="text-danger">{{userNameError}}</small></p>
+              </div>
+
+              <div class="form-outline form-white mb-4">
+                <input formControlName="password" autocomplete="on" type="password" id="typePasswordX"
+                       class="form-control form-control-lg"/>
+                <label class="form-label" for="typePasswordX">Password</label>
+                <input formControlName="confirm_password" autocomplete="on" type="password" id="typeConfirm_passwordX"
+                       class="form-control form-control-lg"/>
+                <label class="form-label" for="typeConfirm_passwordX">Confirm Password</label>
+                <p *ngIf="this.registerForm.get('password')?.invalid && this.registerForm.get('password')?.touched">
+                  <small
+                    class="text-danger">Password is required (min. length = 8)</small></p>
+                <p *ngIf="registerForm.errors"><small
+                  class="text-danger">Passwords do not match</small></p>
+              </div>
+              <button [disabled]="registerForm.invalid" class="btn btn-outline-light btn-lg px-5" type="submit">Register</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

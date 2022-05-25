@@ -4,6 +4,7 @@
 
 export const environment = {
   API: "https://dummyjson.com",
+  API_CARS: "http://owu.linkpc.net/api/v3",
   production: false
 };
 

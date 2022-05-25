@@ -1,7 +1,23 @@
-<div class="menu">
-  <div routerLinkActive="active"><a [routerLink]="['users']">Users</a></div>
-  <div routerLinkActive="active"><a [routerLink]="['posts']">Posts</a></div>
-  <div routerLinkActive="active"><a [routerLink]="['products']">Products</a></div>
-  <div routerLinkActive="active"><a [routerLink]="['comments']">Comments</a></div>
-  <div routerLinkActive="active"><a [routerLink]="['todos']">Todos</a></div>
+<div class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <button type="button" class="btn btn-link px-3 me-2" routerLinkActive="active" [routerLink]="['login']">Login
+    </button>
+    <button type="button" class="btn btn-link px-3 me-2" routerLinkActive="active" [routerLink]="['register']">Register
+    </button>
+    <button type="button" class="btn btn-link px-3 me-2" routerLinkActive="active" [routerLink]="['cars']">Cars
+    </button>
+
+    <button type="button" class="btn btn-link px-3 me-2" routerLinkActive="active" [routerLink]="['users']">Users
+    </button>
+    <button type="button" class="btn btn-link px-3 me-2" routerLinkActive="active" [routerLink]="['posts']">Posts
+    </button>
+    <button type="button" class="btn btn-link px-3 me-2" routerLinkActive="active" [routerLink]="['products']">
+      Products
+    </button>
+    <button type="button" class="btn btn-link px-3 me-2" routerLinkActive="active" [routerLink]="['comments']">
+      Comments
+    </button>
+    <button type="button" class="btn btn-link px-3 me-2" routerLinkActive="active" [routerLink]="['todos']">Todos
+    </button>
+  </div>
 </div>
