@@ -14,7 +14,8 @@ const routes: Routes = [
         path: ":id", component: UserDetailsComponent,
         resolve: {userData: UserDetailsResolver}
       }
-    ]
+    ],
+
   },
 ];
 

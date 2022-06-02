@@ -30,4 +30,12 @@ export class LoginService {
   isAuthUser(): boolean {
     return !!localStorage.getItem(this.accessTokenKey)
   }
+
+  deleteToken() {
+    localStorage.removeItem(this.accessTokenKey)
+  }
+
+  register(user: IUserAuth): Observable<IUserAuth> {
+    return this.httpClient.post<IUserAuth>(urls.auth, user)
+  }
 }

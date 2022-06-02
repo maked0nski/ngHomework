@@ -1,4 +1,19 @@
-<div *ngIf="cars" class="container py-5 vh-100">
-  cars works!
-  <div>{{cars|json}}</div>
+<div class="container py-5 vh-100">
+  Cars List
+  <form [formGroup]="carsGroup">
+    <div><label>model: <input type="text" formControlName="model"></label></div>
+    <div><label>year: <input type="text" formControlName="year"></label></div>
+    <div><label>price: <input type="text" formControlName="price"></label></div>
+    <button (click)="save()">{{!carForUpdate ? 'save' : 'update'}}</button>
+  </form>
+
+  <hr>
+
+  <div>
+    <div *ngFor="let car of cars">
+      {{car.id}} -- {{car.model}} -- {{car.year}} -- {{car.price}} <button (click)="update(car)">update</button> <button (click)="delete(car.id)">delete</button>
+
+
+    </div>
+  </div>
 </div>

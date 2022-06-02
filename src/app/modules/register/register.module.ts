@@ -6,6 +6,7 @@ import {RegisterComponent} from './register-components/register/register.compone
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {RegisterUserService} from "./register-service/register-user.service";
+import {HttpModule} from "../../http.module";
 
 
 @NgModule({
@@ -15,8 +16,8 @@ import {RegisterUserService} from "./register-service/register-user.service";
   imports: [
     CommonModule,
     RegisterRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
   providers: [
     RegisterUserService

@@ -21,15 +21,15 @@ export class CarService {
     return this.httpClient.get<ICar>(`${urls.cars}/${id}`);
   }
 
-  deleteById(id: string) {
-    return this.httpClient.delete(`${urls.cars}/${id}`)
+  deleteById(id: number):Observable<void> {
+    return this.httpClient.delete<void>(`${urls.cars}/${id}`)
   }
 
-  updateById(id: string, car: Partial<ICar>): Observable<ICar> {
+  updateById(id: number, car: Partial<ICar>): Observable<ICar> {
     return this.httpClient.patch<ICar>(`${urls.cars}/${id}`, car);
   }
 
-  createCar(car: ICar): Observable<ICar> {
+  create(car: ICar): Observable<ICar> {
     return this.httpClient.post<ICar>(urls.cars, car);
   }
 }

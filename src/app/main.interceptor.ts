@@ -1,33 +1,46 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor, HttpErrorResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {catchError, Observable, throwError} from 'rxjs';
+
 import {LoginService} from "./modules/login/service/login.service";
+import {Router} from "@angular/router";
 
 @Injectable()
 export class MainInterceptor implements HttpInterceptor {
 
-  constructor(private loginService :LoginService) {}
+  constructor(private loginService: LoginService, private router: Router) {
+  }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+
     const isAuthUser = this.loginService.isAuthUser();
-    if(isAuthUser){
+
+    if (isAuthUser) {
       request = this.addToken(request, this.loginService.getToken())
-      console.log(request);
     }
-    return next.handle(request);
+
+    return next.handle(request).pipe(
+      catchError((res: HttpErrorResponse) => {
+        if (res && res.error && res.status === 401) {
+          this.loginService.deleteToken();
+          this.router.navigate(['login'])
+        }
+        return throwError(() => new Error('Token invalid or expired'))
+      })
+    );
   }
 
 
-
-  addToken(request:HttpRequest<any>, token:string):HttpRequest<any>{
+  addToken(request: HttpRequest<any>, token: string): HttpRequest<any> {
     return request.clone({
-      setHeaders:{Authorization: `Bearer ${token}`}
+      setHeaders: {Authorization: `Bearer ${token}`}
     })
   }
+
 
 }
